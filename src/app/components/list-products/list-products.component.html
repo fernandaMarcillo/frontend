@@ -1,0 +1,88 @@
+<app-progress-bar *ngIf="loading" ></app-progress-bar>
+<div *ngIf="!loading" class="container">
+  <div class="title">
+    <h4> Listado de Postres</h4>
+    <button type="button" class="btn btn-outline-primary" routerLink="./add">
+      <font style="vertical-align: inherit;">
+        <font style="vertical-align: inherit;">Agregar Postre</font>
+      </font>
+    </button>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Nombre</font>
+          </font>
+        </th>
+        <th scope="col">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Descripcion</font>
+          </font>
+        </th>
+        <th scope="col">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Precio</font>
+          </font>
+        </th>
+        <th scope="col">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Stock</font>
+          </font>
+        </th>
+        <th scope="col">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"></font>
+          </font>
+        </th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let item of listProducts" class="table-primary">
+        <td>
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">{{item.nombre_producto }}</font>
+          </font>
+        </td>
+        <td>
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">{{item.description }}</font>
+          </font>
+        </td>
+        <td>
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">{{item.price | currency }}</font>
+          </font>
+        </td>
+        <td>
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">{{item.stock }}</font>
+          </font>
+        </td>
+        <td>
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;"></font>
+          </font>
+        </td>
+        <td>
+          <button routerLink="/edit/{{item.id }}" type="button" class="btn btn-info btn-sm">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Editar</font>
+            </font>
+          </button>
+          <button type="button" class="btn btn-danger btn-sm ms-3">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">Borrar</font>
+            </font>
+          </button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

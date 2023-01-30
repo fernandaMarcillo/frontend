@@ -1,0 +1,55 @@
+<div class="row mt-1">
+  <div class="col-lg-4 offset-lg-4">
+    <div class="card border-primary mb-3" style="max-width: 25rem;">
+      <div class="card-header text-center">
+        <font style="vertical-align: inherit;">
+          <font style="vertical-align: inherit;">Agregar Postre</font>
+        </font>
+      </div>
+      <div class="card-body ">
+        <form [formGroup]="form" (ngSubmit)="addProduct()">
+          <input formControlName="name" type="text" class="for-control" placeholder="Ingresa el nombre">
+          <tr>
+         <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched ">
+            El campo nombre es <strong>Requerido</strong>
+          </span>
+        </tr>
+          <input formControlName="description" type="text" class="for-control mt-2" placeholder="Ingrese la descripcion">
+          <tr>
+            <span *ngIf="form.get('description')?.hasError('required')&& form.get('description')?.touched ">
+              El campo descripcion es <strong>Requerido</strong>
+            </span>
+          </tr>
+          <input formControlName="Price"type="number" class="for-control mt-2" placeholder="Ingresa el precio">
+          <tr>
+            <span *ngIf="form.get('Price')?.hasError('required')&& form.get('Price')?.touched ">
+              El campo Price es <strong>Requerido</strong>
+            </span>
+          </tr>
+          <input formControlName="Stock"type="number" class="for-control mt-2" placeholder="Ingresa el Stock">
+          <tr>
+            <span *ngIf="form.get('Stock')?.hasError('required')&& form.get('Stock')?.touched ">
+              El campo Stock es <strong>Requerido</strong>
+            </span>
+          </tr>
+          <div class="row mt-2 text-center">
+
+            <div class="col-lg-6 mt-3 text-center">
+              <button routerLink="/" type="button" class="btn btn-outline-secondary">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Volver</font>
+                </font>
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <button [disabled]="form.invalid" type="submit" class="btn btn-outline-primary">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">Aceptar</font>
+                </font>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
